@@ -112,14 +112,16 @@ return [
             'host' => 'XX.XX.XX.XX',
             'port' => 22,
             'user' => 'forge',
-            'commands' => ['cd /home/forge/your-dev-domain.com'],
+            'base_path' => '/home/forge/dev.mywebsite.com',
+            'commands' => 'cd {base_path}',
         ],
         'production' => [
             'branch' => 'main',
             'host' => 'XX.XX.XX.XX',
             'port' => 22,
             'user' => 'forge',
-            'commands' => ['cd /home/forge/your-production-domain.com'],
+            'base_path' => '/home/forge/mywebsite.com',
+            'commands' => 'cd {base_path}',
         ],
     ],
 ];
