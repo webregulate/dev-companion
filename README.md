@@ -29,42 +29,19 @@ Install assets (this is needed for the `php artisan dev-companion` command to wo
 php artisan dev-companion:install
 ```
 
-You can publish the config file with:
+Next, modify the dev-companion configuration file to your needs:
 
 ```bash
-php artisan vendor:publish --tag="dev-companion-config"
-```
-
-This is the contents of the published config file:
-
-```php
-return [
-];
+/config/dev-companion.php
 ```
 
 ## Usage
 
+Simply run the following command to open the developer companion interface:
+
 ```bash
 php artisan dev-companion
 ```
-
-## Testing
-
-```bash
-composer test
-```
-
-## Changelog
-
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
-
-## Contributing
-
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
-
-## Security Vulnerabilities
-
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
 
 ## Credits
 
