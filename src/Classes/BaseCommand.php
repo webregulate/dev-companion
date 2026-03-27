@@ -126,22 +126,6 @@ class BaseCommand extends Command
     }
 
     /**
-     * Git has staged files
-     */
-    public function gitHasStagedFiles(): bool
-    {
-        $gitStatus = trim(shell_exec('git status --porcelain'));
-        $lines = explode(PHP_EOL, $gitStatus);
-
-        foreach ($lines as $line) {
-            if (isset($line[0]) && $line[0] !== ' ' && $line[0] !== '?') {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
      * Wrapper for Laravel Prompts select function.
      *
      * @param  array<int|string, string>|Collection<int|string, string>  $options
