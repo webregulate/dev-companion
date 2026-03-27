@@ -117,6 +117,15 @@ class BaseCommand extends Command
     }
 
     /**
+     * Get current Git branch name
+     */
+    public function getCurrentGitBranch(): string
+    {
+        $branchName = trim(shell_exec('git branch --show-current'));
+        return $branchName;
+    }
+
+    /**
      * Is git state clean
      */
     public function isGitStateClean(): bool
