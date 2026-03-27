@@ -117,6 +117,15 @@ class BaseCommand extends Command
     }
 
     /**
+     * Is git state clean
+     */
+    public function isGitStateClean(): bool
+    {
+        $gitStatus = trim(shell_exec('git status --porcelain'));
+        return empty($gitStatus);
+    }
+
+    /**
      * Wrapper for Laravel Prompts select function.
      *
      * @param  array<int|string, string>|Collection<int|string, string>  $options
