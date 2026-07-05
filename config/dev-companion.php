@@ -79,13 +79,25 @@ return [
         }),
 
         // Composer update
-        'composer_update' => InlineCommand::make('Run `composer update --no-dev` on the selected SSH connection', function (InlineCommand $command) {
+        'composer' => InlineCommand::make('Run `composer update --no-dev` on the selected SSH connection', function (InlineCommand $command) {
             // Select which SSH connection to deploy to
             $sshConnection = $command->select('Select a SSH connection to execute composer update', array_values($command->getBranchToSshMappings()));
 
             // Execute commands
             $command->sshCommand($sshConnection, [
                 'composer update --no-dev --optimize-autoloader',
+                'exit'
+            ]);
+        }),
+
+        // NPM update
+        'npm' => InlineCommand::make('Run `npm update` on the selected SSH connection', function (InlineCommand $command) {
+            // Select which SSH connection to deploy to
+            $sshConnection = $command->select('Select a SSH connection to execute npm update', array_values($command->getBranchToSshMappings()));
+
+            // Execute commands
+            $command->sshCommand($sshConnection, [
+                'npm update',
                 'exit'
             ]);
         }),
