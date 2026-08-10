@@ -88,6 +88,11 @@ class BaseCommand extends Command
         return DevCompanion::getConfig($key);
     }
 
+    public function getSshConnectionKeys(): array
+    {
+        return array_keys(DevCompanion::getSshConnections());
+    }
+
     public function getBranchToSshMappings(): array
     {
         $sshConnections = DevCompanion::getSshConnections();

@@ -49,7 +49,7 @@ return [
         // Deploy chosen branch to a selected SSH connection
         'branch' => InlineCommand::make('Deploy chosen branch to a selected SSH connection', function (InlineCommand $command) {
             // Select which SSH connection to deploy to
-            $sshConnection = $command->select('Select a SSH connection to deploy to', array_values($command->getBranchToSshMappings()));
+            $sshConnection = $command->select('Select a SSH connection to deploy to', $command->getSshConnectionKeys());
 
             // Allow user to select which branch to deploy to dev
             $getAllBranches = trim(shell_exec('git branch --all --format="%(refname:short)"'));
@@ -81,7 +81,7 @@ return [
         // Composer update
         'composer' => InlineCommand::make('Run `composer update --no-dev` on the selected SSH connection', function (InlineCommand $command) {
             // Select which SSH connection to deploy to
-            $sshConnection = $command->select('Select a SSH connection to execute composer update', array_values($command->getBranchToSshMappings()));
+            $sshConnection = $command->select('Select a SSH connection to execute composer update', $command->getSshConnectionKeys());
 
             // Execute commands
             $command->sshCommand($sshConnection, [
@@ -93,7 +93,7 @@ return [
         // NPM update
         'npm' => InlineCommand::make('Run `npm update` on the selected SSH connection', function (InlineCommand $command) {
             // Select which SSH connection to deploy to
-            $sshConnection = $command->select('Select a SSH connection to execute npm update', array_values($command->getBranchToSshMappings()));
+            $sshConnection = $command->select('Select a SSH connection to execute npm update', $command->getSshConnectionKeys());
 
             // Execute commands
             $command->sshCommand($sshConnection, [
