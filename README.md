@@ -20,7 +20,7 @@ We highly appreciate you sending us a postcard from your hometown, mentioning wh
 You can install the package via composer (BE AWARE THAT THIS PACKAGE IS IN  ACTIVE DEVELOPMENT AND NOT YET STABLE):
 
 ```bash
-composer require webregulate/dev-companion
+composer require webregulate/dev-companion "^0.8.1"
 ```
 
 Install assets (this is needed for the `php artisan dev-companion` command to work):
