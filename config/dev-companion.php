@@ -1,6 +1,6 @@
 <?php
 
-if(env('APP_ENV') !== 'local' || !app()->runningInConsole()) {
+if (config('app.env', env('APP_ENV')) !== 'local' || ! app()->runningInConsole()) {
     return [];
 }
 
